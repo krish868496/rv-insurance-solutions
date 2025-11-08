@@ -1,65 +1,284 @@
-import Image from "next/image";
+"use client";
 
-export default function Home() {
+import { useEffect, useState } from "react";
+import Link from "next/link";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
+import {
+  Shield,
+  Car,
+  Bike,
+  Heart,
+  Home,
+  Briefcase,
+  Phone,
+  Clock,
+  CheckCircle,
+  MapPin,
+  Star,
+  ArrowRight,
+  Users,
+  Award,
+  TrendingUp,
+  Sparkles,
+  Zap,
+} from "lucide-react";
+
+interface Testimonial {
+  id: string;
+  client_name: string;
+  client_role: string;
+  testimonial_text: string;
+  rating: number;
+  image_url?: string;
+}
+
+interface Service {
+  id: string;
+  service_name: string;
+  service_category: string;
+  description: string;
+  icon: string;
+}
+
+export default function HomePage() {
+  const [testimonials, setTestimonials] = useState<Testimonial[]>([]);
+  const [services, setServices] = useState<Service[]>([]);
+  const [currentTestimonial, setCurrentTestimonial] = useState(0);
+
+  useEffect(() => {
+    if (testimonials.length > 0) {
+      const timer = setInterval(() => {
+        setCurrentTestimonial((prev) => (prev + 1) % testimonials.length);
+      }, 5000);
+      return () => clearInterval(timer);
+    }
+  }, [testimonials]);
+
+  const getIconComponent = (iconName: string) => {
+    const icons: { [key: string]: any } = {
+      car: Car,
+      bike: Bike,
+      "heart-pulse": Heart,
+      "user-check": Shield,
+      home: Home,
+      briefcase: Briefcase,
+    };
+    const IconComponent = icons[iconName] || Shield;
+    return <IconComponent className="w-12 h-12" />;
+  };
+
+  const iconColors = [
+    "from-sky-500 to-blue-600",
+    "from-blue-600 to-indigo-700",
+    "from-indigo-500 to-blue-700",
+    "from-sky-400 to-blue-500",
+    "from-blue-700 to-indigo-800",
+    "from-sky-600 to-blue-800",
+  ];
+
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+    <main className="overflow-hidden">
+      {/* HERO SECTION */}
+      <section className="relative min-h-[90vh] flex items-center bg-gradient-to-br from-sky-500 via-blue-600 to-indigo-700 text-white py-20 overflow-hidden">
+        {/* Glow bubbles */}
+        <div className="absolute inset-0 opacity-30">
+          <div className="absolute top-20 left-10 w-72 h-72 bg-blue-400 rounded-full blur-3xl opacity-70 animate-float"></div>
+          <div className="absolute top-40 right-10 w-72 h-72 bg-sky-500 rounded-full blur-3xl opacity-70 animate-float delay-200"></div>
+          <div className="absolute -bottom-20 left-1/2 w-72 h-72 bg-indigo-500 rounded-full blur-3xl opacity-70 animate-float delay-400"></div>
+        </div>
+
+        <div className="container mx-auto px-4 relative z-10">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            {/* Left content */}
+            <div>
+              <div className="inline-flex items-center gap-2 bg-white/20 backdrop-blur-sm px-4 py-2 rounded-full mb-6">
+                <Sparkles className="w-4 h-4 animate-pulse-slow" />
+                <span className="text-sm font-semibold">
+                  Trusted by 50,000+ Happy Customers
+                </span>
+              </div>
+
+              <h1 className="text-5xl md:text-6xl font-bold mb-6 leading-tight">
+                Your{" "}
+                <span className="bg-clip-text text-transparent bg-gradient-to-r from-sky-300 via-blue-300 to-indigo-300">
+                  Complete Insurance
+                </span>{" "}
+                Solution
+              </h1>
+
+              <p className="text-xl mb-8 text-white/90 leading-relaxed">
+                Protect what matters most with comprehensive coverage, instant
+                claim settlement, and 24/7 support across India.
+              </p>
+
+              <div className="flex flex-col sm:flex-row gap-4 mb-8">
+                <Button
+                  asChild
+                  size="lg"
+                  className="bg-gradient-to-r from-sky-500 to-blue-700 text-gray-900 hover:from-blue-500 hover:to-indigo-600 text-lg px-8 shadow-xl hover:shadow-blue-500/50 transition-all duration-300 hover:scale-105"
+                >
+                  <Link href="/contact">
+                    <Zap className="w-5 h-5 mr-2" />
+                    Get Free Quote
+                  </Link>
+                </Button>
+                <Button
+                  asChild
+                  size="lg"
+                  variant="outline"
+                  className="border-2 border-white hover:bg-white hover:text-blue-700 text-lg px-8 backdrop-blur-sm transition-all duration-300 hover:scale-105 text-blue-700 "
+                >
+                  <Link href="/services">Explore Services</Link>
+                </Button>
+              </div>
+            </div>
+
+            {/* Right visual boxes */}
+            <div className="relative hidden lg:block">
+              <div className="relative">
+                <div className="absolute -inset-1 bg-gradient-to-r from-sky-500 to-blue-700 rounded-2xl blur-2xl opacity-75 animate-pulse-slow"></div>
+                <div className="relative bg-white/10 backdrop-blur-xl rounded-2xl p-8 border border-white/20 shadow-2xl">
+                  <div className="space-y-4">
+                    <div className="flex items-center gap-4 bg-gradient-to-r from-blue-600/20 to-sky-500/20 p-4 rounded-xl border border-blue-400/30 hover:shadow-blue-500/40 hover:scale-105 transition">
+                      <div className="bg-gradient-to-br from-sky-400 to-blue-600 p-3 rounded-xl">
+                        <CheckCircle className="w-6 h-6 text-white" />
+                      </div>
+                      <div>
+                        <p className="font-semibold text-lg">
+                          Instant Claim Settlement
+                        </p>
+                        <p className="text-sm text-white/80">
+                          Claims processed within 24 hours
+                        </p>
+                      </div>
+                    </div>
+
+                    <div className="flex items-center gap-4 bg-gradient-to-r from-blue-700/20 to-indigo-500/20 p-4 rounded-xl border border-indigo-400/30 hover:shadow-indigo-500/40 hover:scale-105 transition">
+                      <div className="bg-gradient-to-br from-blue-500 to-indigo-600 p-3 rounded-xl">
+                        <Clock className="w-6 h-6 text-white" />
+                      </div>
+                      <div>
+                        <p className="font-semibold text-lg">
+                          24/7 Support Available
+                        </p>
+                        <p className="text-sm text-white/80">
+                          Round-the-clock assistance
+                        </p>
+                      </div>
+                    </div>
+
+                    <div className="flex items-center gap-4 bg-gradient-to-r from-sky-600/20 to-blue-500/20 p-4 rounded-xl border border-sky-400/30 hover:shadow-sky-400/40 hover:scale-105 transition">
+                      <div className="bg-gradient-to-br from-sky-400 to-blue-500 p-3 rounded-xl">
+                        <MapPin className="w-6 h-6 text-white" />
+                      </div>
+                      <div>
+                        <p className="font-semibold text-lg">
+                          Pan-India Coverage
+                        </p>
+                        <p className="text-sm text-white/80">
+                          Doorstep service nationwide
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* SERVICES SECTION */}
+      <section className="py-20 bg-gradient-to-br from-gray-50 via-blue-50 to-indigo-50 relative overflow-hidden">
+        <div className="container mx-auto px-4 relative z-10 text-center">
+          <div className="inline-flex items-center gap-2 bg-gradient-to-r from-blue-600 to-sky-600 text-white px-6 py-2 rounded-full mb-4 shadow-lg">
+            <Shield className="w-5 h-5" />
+            <span className="font-semibold">Our Services</span>
+          </div>
+          <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-blue-600 via-sky-600 to-indigo-600">
+            Insurance Solutions
+          </h2>
+          <p className="text-lg text-gray-600 max-w-2xl mx-auto mb-16">
+            Comprehensive protection tailored to your needs
           </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {services.map((service, index) => (
+              <Card
+                key={service.id}
+                className="border-0 bg-white/80 backdrop-blur-md hover:shadow-2xl hover:-translate-y-2 transition-all duration-500"
+              >
+                <CardContent className="p-8 relative">
+                  <div
+                    className={`bg-gradient-to-br ${iconColors[index]} w-20 h-20 rounded-2xl flex items-center justify-center mb-6 text-white shadow-lg`}
+                  >
+                    {getIconComponent(service.icon)}
+                  </div>
+                  <h3 className="text-2xl font-bold mb-4 text-gray-900 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-blue-600 group-hover:to-indigo-600">
+                    {service.service_name}
+                  </h3>
+                  <p className="text-gray-600 mb-6 leading-relaxed">
+                    {service.description}
+                  </p>
+                  <Link
+                    href={`/services#${service.service_category}`}
+                    className="inline-flex items-center gap-2 text-blue-600 font-semibold hover:gap-4 transition-all duration-300"
+                  >
+                    Learn More <ArrowRight className="w-5 h-5" />
+                  </Link>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+
+          <Button
+            asChild
+            size="lg"
+            className="mt-16 bg-gradient-to-r from-blue-600 to-indigo-700 hover:from-blue-700 hover:to-indigo-800 shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105"
           >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+            <Link href="/services">View All Services</Link>
+          </Button>
         </div>
-      </main>
-    </div>
+      </section>
+
+      {/* CTA SECTION */}
+      <section className="py-20 bg-gradient-to-br from-blue-600 via-sky-600 to-indigo-700 text-white relative overflow-hidden">
+        <div className="container mx-auto px-4 text-center relative z-10">
+          <Sparkles className="w-16 h-16 mx-auto mb-6 animate-pulse-slow" />
+          <h2 className="text-4xl md:text-5xl font-bold mb-6">
+            Ready to Get Protected?
+          </h2>
+          <p className="text-xl mb-10 text-white/90">
+            Get a free quote today and discover how affordable comprehensive
+            insurance can be
+          </p>
+
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Button
+              asChild
+              size="lg"
+              className="bg-gradient-to-r from-sky-400 to-blue-600 text-gray-900 hover:from-blue-500 hover:to-indigo-600 shadow-2xl hover:shadow-blue-500/50 transition-all duration-300 hover:scale-105"
+            >
+              <Link href="/contact">
+                <Zap className="w-5 h-5 mr-2" />
+                Get Free Quote Now
+              </Link>
+            </Button>
+            <Button
+              asChild
+              size="lg"
+              variant="outline"
+              className="border-2 border-white text-blue-700 hover:bg-white hover:text-blue-700 backdrop-blur-sm transition-all duration-300 hover:scale-105"
+            >
+              <Link href="/support">
+                <Phone className="w-5 h-5 mr-2" />
+                9718181605
+              </Link>
+            </Button>
+          </div>
+        </div>
+      </section>
+    </main>
   );
 }
