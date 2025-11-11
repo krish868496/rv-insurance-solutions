@@ -83,7 +83,7 @@ export default function HomePage() {
       {/* HERO SECTION */}
       <HeroSection />
       {/* SERVICES SECTION */}
-      <section className="py-20 bg-gradient-to-br from-gray-50 via-blue-50 to-indigo-50 relative overflow-hidden">
+      <section className="py-20 bg-gradient-to-br from-gray-50 via-blue-50 to-indigo-50 relative overflow-hidden ">
         <div className="container mx-auto px-4 relative z-10 text-center">
           <div className="inline-flex items-center gap-2 bg-gradient-to-r from-blue-600 to-sky-600 text-white px-6 py-2 rounded-full mb-4 shadow-lg">
             <Shield className="w-5 h-5" />

@@ -7,7 +7,7 @@ const HeroForm = () => {
   };
 
   return (
-    <div className="absolute lg:right-8 top-1/2 lg:mt-5 -translate-y-1/2 z-20">
+    <div className="absolute right-4 lg:right-8 lg:top-1/2 top-1/6 lg:mt-5 lg:-translate-y-1/2 z-20 ">
       <div className="w-[380px] bg-white/10 backdrop-blur-lg border border-white/20 rounded-2xl shadow-2xl p-3 lg:p-6 text-white animate-fade-in ">
         <h2 className="text-2xl font-semibold mb-4 text-center  text-text-primary bg-clip-text ">
           Get Your Vehicle Insured 🚗
