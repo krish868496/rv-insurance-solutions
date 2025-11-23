@@ -3,6 +3,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 import Image from "next/image";
+import HeroForm from "./home/HeroForm";
 
 export function SlickSlider({ images }: { images: string[] }) {
   const settings = {
@@ -18,7 +19,7 @@ export function SlickSlider({ images }: { images: string[] }) {
   };
 
   return (
-    <div className="relative w-full h-[350px] lg:h-[550px] overflow-hidden shadow-lg">
+    <div className="relative w-full h-[550px] overflow-hidden shadow-lg">
       <Slider {...settings}>
         {images.map((src, idx) => (
           <div key={idx} className="relative w-full h-[500px]">
@@ -29,7 +30,8 @@ export function SlickSlider({ images }: { images: string[] }) {
               className="object-cover brightness-[0.85]"
               priority={idx === 0}
             />
-            <div className="absolute inset-0 bg-gradient-to-b from-black/40 to-black/20"></div>
+            <div className="absolute inset-0 bg-linear-to-b from-black/60 to-black/40"></div>
+            <HeroForm />
           </div>
         ))}
       </Slider>

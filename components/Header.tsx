@@ -34,7 +34,9 @@ export default function Header() {
       }`}
     >
       {/* --- Top bar --- */}
-      <div className="bg-gradient-to-r from-[var(--primary-dark)] to-[var(--primary)] text-white py-2">
+      <div
+        className="text-white py-2 bg-primary"
+      >
         <div className="container mx-auto px-4 flex justify-between items-center text-sm">
           <div className="flex items-center gap-4">
             <a
@@ -69,7 +71,7 @@ export default function Header() {
             alt="RV Insurance Logo"
             width={240}
             height={80}
-            className="h-14 w-[140px] sm:w-[260px] lg:w-[300px] object-contain transition-transform hover:scale-200"
+            className="h-14 w-[140px] sm:w-[260px] lg:w-[300px] object-contain transition-transform scale-200"
             priority
           />
         </Link>

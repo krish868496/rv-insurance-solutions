@@ -20,6 +20,7 @@
     "react-dom": "19.2.0",
     "react-hot-toast": "^2.6.0",
     "react-slick": "^0.31.0",
+    "resend": "^6.5.2",
     "slick-carousel": "^1.8.1",
     "sonner": "^2.0.7",
     "tailwind-merge": "^3.3.1"

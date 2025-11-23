@@ -24,6 +24,9 @@ import {
   Zap,
 } from "lucide-react";
 import HeroSection from "@/components/HeroSection";
+import ServicesCard from "@/components/ServicesCard";
+import WhyChooseUs from "@/components/home/WhyChooseUs";
+import TestimonialsSection from "@/components/home/TestimonialsSection";
 
 interface Testimonial {
   id: string;
@@ -96,73 +99,47 @@ export default function HomePage() {
             Comprehensive protection tailored to your needs
           </p>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {services.map((service, index) => (
-              <Card
-                key={service.id}
-                className="border-0 bg-white/80 backdrop-blur-md hover:shadow-2xl hover:-translate-y-2 transition-all duration-500"
-              >
-                <CardContent className="p-8 relative">
-                  <div
-                    className={`bg-gradient-to-br ${iconColors[index]} w-20 h-20 rounded-2xl flex items-center justify-center mb-6 text-white shadow-lg`}
-                  >
-                    {getIconComponent(service.icon)}
-                  </div>
-                  <h3 className="text-2xl font-bold mb-4 text-gray-900 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-blue-600 group-hover:to-indigo-600">
-                    {service.service_name}
-                  </h3>
-                  <p className="text-gray-600 mb-6 leading-relaxed">
-                    {service.description}
-                  </p>
-                  <Link
-                    href={`/services#${service.service_category}`}
-                    className="inline-flex items-center gap-2 text-blue-600 font-semibold hover:gap-4 transition-all duration-300"
-                  >
-                    Learn More <ArrowRight className="w-5 h-5" />
-                  </Link>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
+          <ServicesCard />
 
-          <Button
-            asChild
-            size="lg"
-            className="mt-16 bg-gradient-to-r from-blue-600 to-indigo-700 hover:from-blue-700 hover:to-indigo-800 shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105"
-          >
-            <Link href="/services">View All Services</Link>
+          <Button variant="outline">
+            <Link href={"/services"}>View All Services</Link>
           </Button>
         </div>
       </section>
 
       {/* CTA SECTION */}
-      <section className="py-20 bg-gradient-to-br from-blue-600 via-sky-600 to-indigo-700 text-white relative overflow-hidden">
+      <section className="py-20 bg-primary text-white relative overflow-hidden">
         <div className="container mx-auto px-4 text-center relative z-10">
           <Sparkles className="w-16 h-16 mx-auto mb-6 animate-pulse-slow" />
+
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
             Ready to Get Protected?
           </h2>
+
           <p className="text-xl mb-10 text-white/90">
             Get a free quote today and discover how affordable comprehensive
             insurance can be
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            {/* ✅ Active Primary Button */}
             <Button
               asChild
               size="lg"
-              className="bg-gradient-to-r from-sky-400 to-blue-600 text-gray-900 hover:from-blue-500 hover:to-indigo-600 shadow-2xl hover:shadow-blue-500/50 transition-all duration-300 hover:scale-105"
+              className="bg-white text-[var(--primary)] font-semibold shadow-[0_4px_15px_rgba(0,0,0,0.15)] hover:shadow-[0_6px_20px_rgba(0,0,0,0.25)] hover:bg-gray-100 transition px-8"
             >
               <Link href="/contact">
-                <Zap className="w-5 h-5 mr-2" />
+                <Zap className="w-5 h-5 mr-2 text-[var(--primary)]" />
                 Get Free Quote Now
               </Link>
             </Button>
+
+            {/* ✅ Outline Button (white outline version for dark bg) */}
             <Button
               asChild
               size="lg"
               variant="outline"
-              className="border-2 border-white text-blue-700 hover:bg-white hover:text-blue-700 backdrop-blur-sm transition-all duration-300 hover:scale-105"
+              className="border-white text-white hover:bg-white hover:text-[var(--primary)]"
             >
               <Link href="/support">
                 <Phone className="w-5 h-5 mr-2" />
@@ -172,6 +149,12 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      {/* why choose us  */}
+      <WhyChooseUs />
+
+      {/* testimonal section  */}
+      <TestimonialsSection />
     </main>
   );
 }

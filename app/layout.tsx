@@ -1,11 +1,16 @@
 import Header from "@/components/Header";
 import "./globals.css";
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Inter, Poppins } from "next/font/google";
 import Footer from "@/components/Footer";
 import { Toaster } from "@/components/toast";
 
-const inter = Inter({ subsets: ["latin"] });
+const poppins = Poppins({
+  weight: ["400", "700"], // Specify desired weights (e.g., regular and bold)
+  subsets: ["latin"], // Specify desired subsets (e.g., 'latin')
+  display: "swap", // Optional: controls how the font is displayed while loading
+  variable: "--font-poppins", // Optional: for using with CSS variables
+});
 
 export const metadata: Metadata = {
   title: "RV Insurance | Car, Bike, Health & Life Insurance in India",
@@ -22,7 +27,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body className={poppins.className}>
         <Header />
         {children}
         <Footer />

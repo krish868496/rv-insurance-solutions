@@ -198,9 +198,6 @@ export default function Footer() {
                 </a>
               </li>
             </ul>
-            <div className="mt-4 bg-red-600 text-white px-3 py-2 rounded text-sm font-semibold">
-              Emergency Claims:9718181605
-            </div>
           </div>
         </div>
 
