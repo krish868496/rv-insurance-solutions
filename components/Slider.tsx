@@ -30,6 +30,16 @@ export function SlickSlider({ images }: { images: string[] }) {
               className="object-cover brightness-[0.85]"
               priority={idx === 0}
             />
+            {/* ✅ HERO TEXT ADDED HERE */}
+            <div className="absolute inset-0 flex flex-col justify-center items-start text-white px-6 md:px-12 z-20 max-w-2xl">
+              <h1 className="text-3xl md:text-5xl font-bold leading-tight">
+                India’s Trusted Insurance Partner for Health, Car & Life
+              </h1>
+              <p className="mt-4 text-lg md:text-xl opacity-90">
+                Join thousands of families who saved more with our transparent
+                pricing, expert guidance, and hassle-free claim support.
+              </p>
+            </div>
             <div className="absolute inset-0 bg-linear-to-b from-black/60 to-black/40"></div>
             <HeroForm />
           </div>

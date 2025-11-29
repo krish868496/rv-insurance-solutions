@@ -50,12 +50,12 @@ export default function TestimonialsSection() {
   };
 
   return (
-    <section className="py-20 bg-white relative">
+    <section className="py-16 lg:py-20 bg-white relative">
       <div className="container mx-auto px-4 text-center">
-        <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-blue-600 via-sky-600 to-indigo-600">
+        <h2 className="text-4xl md:text-5xl font-bold mb-4 text-text-primary">
           What Our Clients Say
         </h2>
-        <p className="text-lg text-gray-600 max-w-2xl mx-auto mb-12">
+        <p className="text-lg text-text-secondary max-w-2xl mx-auto mb-12">
           Trusted by hundreds of customers for insurance solutions
         </p>
 
@@ -75,7 +75,7 @@ export default function TestimonialsSection() {
                   </div>
                 </div>
 
-                <p className="text-gray-700 text-lg italic leading-7 mb-4">
+                <p className="text-text-secondary text-sm italic leading-7 mb-4">
                   "{t.text}"
                 </p>
 

@@ -27,6 +27,7 @@ import HeroSection from "@/components/HeroSection";
 import ServicesCard from "@/components/ServicesCard";
 import WhyChooseUs from "@/components/home/WhyChooseUs";
 import TestimonialsSection from "@/components/home/TestimonialsSection";
+import Services from "@/components/home/Services";
 
 interface Testimonial {
   id: string;
@@ -86,26 +87,11 @@ export default function HomePage() {
       {/* HERO SECTION */}
       <HeroSection />
       {/* SERVICES SECTION */}
-      <section className="py-20 bg-gradient-to-br from-gray-50 via-blue-50 to-indigo-50 relative overflow-hidden ">
-        <div className="container mx-auto px-4 relative z-10 text-center">
-          <div className="inline-flex items-center gap-2 bg-gradient-to-r from-blue-600 to-sky-600 text-white px-6 py-2 rounded-full mb-4 shadow-lg">
-            <Shield className="w-5 h-5" />
-            <span className="font-semibold">Our Services</span>
-          </div>
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-blue-600 via-sky-600 to-indigo-600">
-            Insurance Solutions
-          </h2>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto mb-16">
-            Comprehensive protection tailored to your needs
-          </p>
 
-          <ServicesCard />
+      <Services />
 
-          <Button variant="outline">
-            <Link href={"/services"}>View All Services</Link>
-          </Button>
-        </div>
-      </section>
+      {/* why choose us  */}
+      <WhyChooseUs />
 
       {/* CTA SECTION */}
       <section className="py-20 bg-primary text-white relative overflow-hidden">
@@ -149,9 +135,6 @@ export default function HomePage() {
           </div>
         </div>
       </section>
-
-      {/* why choose us  */}
-      <WhyChooseUs />
 
       {/* testimonal section  */}
       <TestimonialsSection />

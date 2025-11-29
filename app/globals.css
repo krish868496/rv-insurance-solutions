@@ -5,6 +5,22 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
+
+   --color-background: var(--background);
+  --color-surface: var(--surface);
+
+  --color-primary: var(--primary);
+  --color-primary-light: var(--primary-light);
+  --color-primary-dark: var(--primary-dark);
+
+  --color-accent: var(--accent);
+  --color-accent-light: var(--accent-light);
+
+  --color-text-primary: var(--text-primary);
+  --color-text-secondary: var(--text-secondary);
+
+  --color-border: var(--border);
+
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
@@ -46,18 +62,18 @@
 
 :root {
   /* Core Theme Colors */
-  --primary: #1E88E5;       /* Trust Blue */
-  --primary-light: #63B3ED; /* Softer Blue for hover/glow */
-  --primary-dark: #1565C0;  /* Deep blue for focus/contrast */
-  
-  --accent: #F4B400;        /* Golden Accent – confidence & wealth */
-  --accent-light: #FFD54F;  /* Softer accent for highlights */
+--primary: #0D47A1;       /* Deep Royal Blue */
+  --primary-light: #5472d3; /* Soft blue for hover */
+  --primary-dark: #002171;  /* Navy for strong contrast */
 
-  --background: #F9FAFB;    /* Light gray background */
-  --surface: #FFFFFF;       /* Card / container backgrounds */
-  --text-primary: #1E293B;  /* Dark gray text */
-  --text-secondary: #64748B;/* Subtext or paragraph */
-  --border: #E2E8F0;        /* Light border for sections */
+  --accent: #FFB300;        /* Premium Gold */
+  --accent-light: #FFD54F;  /* Soft gold highlight */
+
+  --background: #F8FAFC;    /* Clean light background */
+  --surface: #FFFFFF;       /* Cards */
+  --text-primary: #1E293B;  /* Headings */
+  --text-secondary: #64748B;/* Paragraphs */
+  --border: #E2E8F0;        /* Borders */       /* Light border for sections */
 }
 
 
@@ -104,44 +120,12 @@
   }
 }
 
-@keyframes gradientMove {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
+
+
+
+.subheading {
+  @apply text-3xl md:text-4xl text-text-primary font-bold mb-4;
 }
-
-.animate-gradient {
-  background: linear-gradient(135deg, var(--primary), var(--primary-dark), var(--accent));
-  background-size: 200% 200%;
-  animation: gradientMove 8s ease infinite;
-}
-
-@keyframes blueGlow {
-  0%, 100% { filter: drop-shadow(0 0 6px var(--primary-light)); }
-  50% { filter: drop-shadow(0 0 14px var(--primary)); }
-}
-
-.animate-blue-glow {
-  animation: blueGlow 4s infinite ease-in-out;
-}
-
-
-
-@keyframes fadeInDown {
-  from {
-    opacity: 0;
-    transform: translateY(-10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-.animate-fadeInDown {
-  animation: fadeInDown 0.4s ease-out;
-}
-
-.backdrop-blur-xl {
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
+.section{
+  @apply py-16 lg:py-20 bg-border;
 }

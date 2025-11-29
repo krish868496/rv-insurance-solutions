@@ -55,7 +55,7 @@ export default function Header() {
               <span className="hidden md:inline"> rvinsurance07@gmail.com</span>
             </a>
           </div>
-          <div className="text-xs sm:text-sm flex items-center gap-1 text-yellow-200/90">
+          <div className="text-xs sm:text-sm flex items-center gap-1 text-white">
             <Sparkles className="w-3 h-3 animate-pulse-slow" />
             Pan-India Coverage{" "}
             <span className="hidden lg:flex">| Trusted by 5,000+ Clients</span>

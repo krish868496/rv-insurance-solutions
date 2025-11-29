@@ -6,7 +6,7 @@ import Footer from "@/components/Footer";
 import { Toaster } from "@/components/toast";
 
 const poppins = Poppins({
-  weight: ["400", "700"], // Specify desired weights (e.g., regular and bold)
+  weight: ["400", "500", "600", "700"], // Specify desired weights (e.g., regular and bold)
   subsets: ["latin"], // Specify desired subsets (e.g., 'latin')
   display: "swap", // Optional: controls how the font is displayed while loading
   variable: "--font-poppins", // Optional: for using with CSS variables

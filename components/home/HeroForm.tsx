@@ -1,6 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import { toast } from "../toast";
+import { Button } from "../ui/button";
 
 const HeroForm = () => {
   const [loading, setLoading] = useState(false);
@@ -59,12 +60,9 @@ const HeroForm = () => {
             className="px-3 py-3 rounded-lg bg-white/10 border border-white/30 focus:outline-none focus:ring-2 focus:ring-white/10 placeholder:text-gray-300 text-sm transition-all"
           />
 
-          <button
-            type="submit"
-            className="bg-primary hover:bg-primary-dark text-white px-6 py-3 rounded-lg transition-all cursor-pointer"
-          >
+          <Button type="submit">
             {loading ? "Sending..." : "Get Quote Now"}
-          </button>
+          </Button>
         </form>
       </div>
     </div>
