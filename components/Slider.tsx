@@ -4,6 +4,8 @@ import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 import Image from "next/image";
 import HeroForm from "./home/HeroForm";
+import { Button } from "./ui/button";
+import Link from "next/link";
 
 export function SlickSlider({ images }: { images: string[] }) {
   const settings = {
@@ -31,7 +33,7 @@ export function SlickSlider({ images }: { images: string[] }) {
               priority={idx === 0}
             />
             {/* ✅ HERO TEXT ADDED HERE */}
-            <div className="absolute inset-0 flex flex-col justify-center items-start text-white px-6 md:px-12 z-20 max-w-2xl">
+            <div className="absolute inset-0 flex flex-col justify-center items-center text-center text-white px-6 md:px-12 z-20 max-w-4xl mx-auto">
               <h1 className="text-3xl md:text-5xl font-bold leading-tight">
                 India’s Trusted Insurance Partner for Health, Car & Life
               </h1>
@@ -41,7 +43,9 @@ export function SlickSlider({ images }: { images: string[] }) {
               </p>
             </div>
             <div className="absolute inset-0 bg-linear-to-b from-black/60 to-black/40"></div>
-            <HeroForm />
+            <Button className="absolute z-20 top-[75%]  left-1/2 -translate-x-1/2">
+              <Link href="/contact">Talk to an Expert</Link>
+            </Button>
           </div>
         ))}
       </Slider>
