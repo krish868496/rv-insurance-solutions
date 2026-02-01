@@ -8,6 +8,7 @@ import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Mail, Phone, MapPin, Clock, Send } from "lucide-react";
 import { toast } from "@/components/toast";
+import ContactInformation from "@/components/contact/ContactInformation";
 
 export default function ContactPage() {
   const [loading, setLoading] = useState(false);
@@ -21,12 +22,11 @@ export default function ContactPage() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-       toast({
-         title: "Success 🎉",
-         description: "Your insurance policy has been created.",
-         type: "success",
-       });
-
+    toast({
+      title: "Success 🎉",
+      description: "Your insurance policy has been created.",
+      type: "success",
+    });
   };
 
   const handleChange = (
@@ -149,163 +149,7 @@ export default function ContactPage() {
               </Card>
             </div>
 
-            <div>
-              <h2 className="text-3xl font-bold mb-6 text-gray-900">
-                Contact Information
-              </h2>
-              <p className="text-gray-600 mb-8 leading-relaxed">
-                Reach out to us through any of the following channels. We're
-                available 24/7 to assist you with your insurance needs.
-              </p>
-
-              <div className="space-y-6">
-                <Card className="border-l-4 border-l-blue-600">
-                  <CardContent className="p-6">
-                    <div className="flex items-start gap-4">
-                      <div className="bg-blue-100 text-blue-600 p-3 rounded-lg">
-                        <Phone className="w-6 h-6" />
-                      </div>
-                      <div>
-                        <h3 className="font-bold text-lg mb-1 text-gray-900">
-                          Phone
-                        </h3>
-                        <p className="text-gray-600 mb-2">
-                          Call us anytime for immediate assistance
-                        </p>
-                        <a
-                          href="tel:+919718181605"
-                          className="text-blue-600 font-semibold text-lg hover:text-blue-700"
-                        >
-                          9718181605 (Toll Free)
-                        </a>
-                        <p className="text-sm text-gray-500 mt-1">
-                          24/7 Customer Support
-                        </p>
-                      </div>
-                    </div>
-                  </CardContent>
-                </Card>
-
-                <Card className="border-l-4 border-l-green-600">
-                  <CardContent className="p-6">
-                    <div className="flex items-start gap-4">
-                      <div className="bg-green-100 text-green-600 p-3 rounded-lg">
-                        <Mail className="w-6 h-6" />
-                      </div>
-                      <div>
-                        <h3 className="font-bold text-lg mb-1 text-gray-900">
-                          Email
-                        </h3>
-                        <p className="text-gray-600 mb-2">
-                          Send us an email for detailed inquiries
-                        </p>
-                        <a
-                          href="mailto:rvinsurance07@gmail.com"
-                          className="text-green-600 font-semibold hover:text-green-700"
-                        >
-                          rvinsurance07@gmail.com
-                        </a>
-                        <p className="text-sm text-gray-500 mt-1">
-                          Response within 4 hours
-                        </p>
-                      </div>
-                    </div>
-                  </CardContent>
-                </Card>
-
-                <Card className="border-l-4 border-l-orange-600">
-                  <CardContent className="p-6">
-                    <div className="flex items-start gap-4">
-                      <div className="bg-orange-100 text-orange-600 p-3 rounded-lg">
-                        <MapPin className="w-6 h-6" />
-                      </div>
-                      <div>
-                        <h3 className="font-bold text-lg mb-1 text-gray-900">
-                          Office Address
-                        </h3>
-                        <p className="text-gray-600 mb-2">
-                          Visit us at our main office
-                        </p>
-                        <p className="text-gray-700">
-                          123 Insurance Plaza
-                          <br />
-                          Mumbai, Maharashtra 400001
-                          <br />
-                          India
-                        </p>
-                      </div>
-                    </div>
-                  </CardContent>
-                </Card>
-
-                <Card className="border-l-4 border-l-red-600">
-                  <CardContent className="p-6">
-                    <div className="flex items-start gap-4">
-                      <div className="bg-red-100 text-red-600 p-3 rounded-lg">
-                        <Clock className="w-6 h-6" />
-                      </div>
-                      <div>
-                        <h3 className="font-bold text-lg mb-1 text-gray-900">
-                          Business Hours
-                        </h3>
-                        <p className="text-gray-600 mb-2">
-                          Our office is open:
-                        </p>
-                        <div className="text-gray-700 space-y-1">
-                          <p>Monday - Friday: 9:00 AM - 6:00 PM</p>
-                          <p>Saturday: 9:00 AM - 2:00 PM</p>
-                          <p>Sunday: Closed</p>
-                          <p className="text-sm text-green-600 font-semibold mt-2">
-                            Emergency support available 24/7
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-                  </CardContent>
-                </Card>
-              </div>
-
-              <Card className="mt-6 bg-blue-600 text-white border-none">
-                <CardContent className="p-6 text-center">
-                  <h3 className="text-xl font-bold mb-2">
-                    Pan-India Service Coverage
-                  </h3>
-                  <p className="text-blue-100">
-                    We provide doorstep service across all major cities and
-                    towns in India. Our agents are ready to visit you at your
-                    convenience.
-                  </p>
-                </CardContent>
-              </Card>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="py-16 bg-white">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto">
-            <Card className="bg-gradient-to-br from-green-600 to-green-800 text-white border-none">
-              <CardContent className="p-8 md:p-12 text-center">
-                <h2 className="text-3xl md:text-4xl font-bold mb-4">
-                  Need Immediate Assistance?
-                </h2>
-                <p className="text-xl text-green-100 mb-8 leading-relaxed">
-                  For urgent matters and claim assistance, our emergency
-                  helpline is available round the clock.
-                </p>
-                <Button
-                  asChild
-                  size="lg"
-                  className="bg-white text-green-600 hover:bg-green-50"
-                >
-                  <a href="tel:+919718181605">
-                    <Phone className="w-5 h-5 mr-2" />
-                    Emergency Claims:9718181605
-                  </a>
-                </Button>
-              </CardContent>
-            </Card>
+           <ContactInformation />
           </div>
         </div>
       </section>

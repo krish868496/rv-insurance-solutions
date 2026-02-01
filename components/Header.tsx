@@ -27,16 +27,14 @@ export default function Header() {
 
   return (
     <header
-      className={`sticky top-0 z-50 transition-all duration-300 ${
+      className={`sticky top-0 z-50 transition-all duration-300  bg-white ${
         scrolled
-          ? "backdrop-blur-xl bg-white/60 shadow-[0_4px_30px_rgba(0,0,0,0.1)] border-b border-white/30"
+          ? "backdrop-blur-xl bg-white shadow-[0_4px_30px_rgba(0,0,0,0.1)] border-b border-white/30"
           : "bg-transparent backdrop-blur-md"
       }`}
     >
       {/* --- Top bar --- */}
-      <div
-        className="text-white py-2 bg-primary"
-      >
+      <div className="text-white py-2 bg-primary">
         <div className="container mx-auto px-4 flex justify-between items-center text-sm">
           <div className="flex items-center gap-4">
             <a
@@ -64,17 +62,19 @@ export default function Header() {
       </div>
 
       {/* --- Main Nav --- */}
-      <nav className="container mx-auto px-2 py-2 lg:px-4 lg:py-4 flex justify-between items-center">
-        <Link href="/" className="flex items-center gap-3">
-          <Image
-            src="/logo.svg"
-            alt="RV Insurance Logo"
-            width={240}
-            height={80}
-            className="h-14 w-[140px] sm:w-[260px] lg:w-[300px] object-contain transition-transform scale-200"
-            priority
-          />
-        </Link>
+      <nav className="container mx-auto px-2 py-2 lg:px-4 lg:py-3 flex justify-between items-center">
+        <div className="w-[300px]">
+          <Link href="/" className="flex items-center gap-3 overflow-hidden">
+            <Image
+              src="/logo.jpg"
+              alt="RV Insurance Logo"
+              width={240}
+              height={80}
+              className="h-16 w-[400px] overflow-hidden object-contain transition-transform scale-150"
+              priority
+            />
+          </Link>
+        </div>
 
         {/* Desktop Nav */}
         <div className="hidden lg:flex items-center gap-3 lg:gap-6">
@@ -113,7 +113,7 @@ export default function Header() {
 
       {/* Mobile Nav Drawer */}
       {isMenuOpen && (
-        <div className="lg:hidden px-4 pb-4 border-t border-white/30 backdrop-blur-xl bg-white/50 animate-fadeInDown">
+        <div className="lg:hidden px-4 pb-4 border-t border-white/30 backdrop-blur-xl bg-white animate-fadeInDown">
           <div className="flex flex-col gap-4 pt-4">
             {navLinks.map((link, index) => (
               <Link

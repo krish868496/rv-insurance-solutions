@@ -14,6 +14,7 @@ import {
   ArrowRight,
 } from "lucide-react";
 import Link from "next/link";
+import Faqs from "@/components/Faqs";
 
 interface Service {
   id: string;
@@ -42,6 +43,7 @@ export default function ServicesPage() {
 
   return (
     <main className="min-h-screen">
+      <Faqs />
       <section className="bg-gradient-to-br from-blue-600 to-blue-800 text-white py-16 md:py-24">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto text-center">

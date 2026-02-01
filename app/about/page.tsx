@@ -9,9 +9,9 @@ import {
   CheckCircle,
   MapPin,
 } from "lucide-react";
-import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
+import Image from "next/image";
 
 export default function AboutPage() {
   const values = [
@@ -152,7 +152,7 @@ export default function AboutPage() {
                 <Card>
                   <CardContent className="p-4 text-center">
                     <div className="text-3xl font-bold text-green-600 mb-1">
-                      50K+
+                      15K+
                     </div>
                     <div className="text-sm text-gray-600">Happy Customers</div>
                   </CardContent>
@@ -327,81 +327,48 @@ export default function AboutPage() {
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gray-900">
-              Meet Our Leadership Team
+              Your Trusted Insurance Advisor
             </h2>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              Experienced professionals dedicated to your security
+              One expert. All your insurance needs. Honest guidance you can rely
+              on.
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
-            {team.map((member, index) => (
-              <Card
-                key={index}
-                className="text-center hover:shadow-xl transition-shadow duration-300"
-              >
-                <CardContent className="p-6">
-                  <div className="bg-gradient-to-br from-blue-600 to-blue-800 text-white w-24 h-24 rounded-full flex items-center justify-center mx-auto mb-4 text-3xl font-bold">
-                    {member.name
-                      .split(" ")
-                      .map((n) => n[0])
-                      .join("")}
-                  </div>
-                  <h3 className="font-bold text-lg mb-1 text-gray-900">
-                    {member.name}
-                  </h3>
-                  <p className="text-blue-600 font-semibold mb-2 text-sm">
-                    {member.role}
-                  </p>
-                  <p className="text-gray-600 text-sm">{member.description}</p>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="py-16 bg-white">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto">
-            <Card className="bg-gradient-to-br from-green-600 to-green-800 text-white border-none">
-              <CardContent className="p-8 md:p-12">
-                <div className="text-center mb-8">
-                  <MapPin className="w-12 h-12 mx-auto mb-4" />
-                  <h2 className="text-3xl md:text-4xl font-bold mb-4">
-                    Pan-India Presence
-                  </h2>
-                  <p className="text-xl text-green-100 mb-6 leading-relaxed">
-                    With our extensive network of agents and partners, we
-                    provide doorstep service across all major cities and towns
-                    in India.
-                  </p>
+          <div className="max-w-md mx-auto">
+            <Card className="text-center hover:shadow-xl transition-shadow duration-300">
+              <CardContent className="p-8">
+                <div className=" w-28 h-28 rounded-full flex items-center justify-center mx-auto mb-6 text-3xl font-bold">
+                  <Image
+                    src={"/images/sonu.png"}
+                    alt="Sonu Yadav"
+                    width={100}
+                    height={100}
+                    className="rounded-full"
+                  />
                 </div>
 
-                <div className="grid md:grid-cols-3 gap-6 text-center mb-8">
-                  <div>
-                    <div className="text-4xl font-bold mb-2">100+</div>
-                    <div className="text-green-100">Cities Covered</div>
-                  </div>
-                  <div>
-                    <div className="text-4xl font-bold mb-2">500+</div>
-                    <div className="text-green-100">Field Agents</div>
-                  </div>
-                  <div>
-                    <div className="text-4xl font-bold mb-2">1000+</div>
-                    <div className="text-green-100">Partner Garages</div>
-                  </div>
-                </div>
+                <h3 className="font-bold text-xl mb-1 text-gray-900">
+                  Sonu Yadav
+                </h3>
 
-                <div className="text-center">
-                  <Button
-                    asChild
-                    size="lg"
-                    className="bg-white text-green-600 hover:bg-green-50"
-                  >
-                    <Link href="/contact">Get in Touch</Link>
-                  </Button>
-                </div>
+                <p className="text-blue-600 font-semibold mb-3 text-sm">
+                  Insurance Advisor & Consultant
+                </p>
+
+                <p className="text-gray-600 text-sm mb-4 leading-relaxed">
+                  With years of hands-on experience, I help individuals and
+                  families choose the right insurance plans — health, life,
+                  motor, and more. No confusion, no hidden terms — only honest
+                  advice tailored to your needs.
+                </p>
+
+                <p className="text-gray-700 text-sm font-medium">
+                  ✔ Policy Comparison
+                  <br />
+                  ✔ Claim Assistance
+                  <br />✔ Lifetime Support
+                </p>
               </CardContent>
             </Card>
           </div>
